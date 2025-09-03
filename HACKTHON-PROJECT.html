@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimme Preventions</title>
+    <link rel="stylesheet" href="back2.css" />
+    <link rel="stylesheet" href="combine.css" />
+</head>
+
+<body style="overflow-y: auto;">
+    <div class="background"></div>
+    <div class="particles" id="particles"></div>
+
+    <h1 class="logo">FETCH
+        <span class="eye">EYE</span>
+    </h1>
+    <div class="title">JOIN THE BATTLE<br>AGANIST CRIME</div>
+    <div class="question"><br>WE WILL HELP YOU OUT <br>DON'T PANIC<br>DON'T FEAR</div>
+    <button class="css-button-sliding-to-left--black" id="knowMoreBtn" onclick="window.location.href='combine.html'">KNOW MORE</button>
+    
+
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                
+                const size = Math.random() * 2 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+
+                
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s linear infinite`;
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Add floating animation to particles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes float {
+                0% {
+                    transform: translateY(0) translateX(0);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) translateX(${Math.random() > 0.5 ? '-' : ''}${Math.random() * 100}px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Button click event
+        document.getElementById('knowMoreBtn').addEventListener('click', function () {
+            alert('More information would be displayed here. This is a recreation of the original design.');
+        });
+
+        // Initialize particles
+        createParticles();
+    </script>
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1 class="logo">FETCH <span class="eye">EYE</span></h1>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="#" class="nav-link" id="dashboardLink">Dashboard</a></li>
+                <li><a href="#" class="nav-link" id="chatbotLink">Chatbot</a></li>
+                <li><a href="f.html" class="nav-link" id="chatbotLink">Signup</a></li>
+                <li><a href="f.html" class="nav-link" id="chatbotLink">Login</a></li>
+            <li><a href="#" class="emergency-btn" id="emergencySOSBtn">Emergency SOS</a></li>
+            </ul>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <h3>Safety Assistant</h3>
+            <span class="close-chatbot">&times;</span>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-message bot-message">
+                Hello! I'm your safety assistant. How can I help you today?. you ask me about any thing i don't judge you. 
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+    <!-- Dashboard Modal -->
+    <div class="dashboard-modal" id="dashboardModal">
+        <div class="dashboard-header">
+            <h3>Your Safety Dashboard</h3>
+            <span class="close-dashboard">&times;</span>
+        </div>
+        <div class="dashboard-body">
+            <div class="dashboard-card">
+                <h4>Recent Alerts</h4>
+                <p> Final Update: Lane Closures / Vehicle Crash (E/B I-695)
+                    DDOT reports the vehicle crash has cleared and all eastbound lanes on I-695 at 6th Street, SE, have reopened to traffic. </p>
+                    <p>Crime Alert 5th District (PSA 501-508)
+                        Alert: MPD Units are investigating a shooting in the 1600 block of Trinidad Ave, NE. DO NOT TAKE ACTION CALL 911 W/ EVENT #I20250194236 Sent to 5th District (PSA 501-508) Alert DC Sent by MPD Cad </p>
+                        <P>Crime Alert 5th District (PSA 501-508)
+                            Alert: MPD Units are investigating a Robbery in the 600 block of Bryant Street NE. Lookout is for S-1 B/M, 12 year old, riding a black bicycle. S-2 B/M, white tank top, riding a green bicycle. S-3 B/M, white tank top, riding a green bicycle DO NOT TAKE ACTION CALL 911 W/ EVENT #I20250193553 Sent to 5th District (PSA 501-508) Alert DC Sent by MPD Cad</P>
+            </div>
+            <div class="dashboard-card">
+                <h4>Safety Tips</h4>
+                <p>• Always be aware of your surroundings</p>
+                <p>• Share your live location with trusted contacts
+                <p>•Always be aware of your surroundings.
+                </p>
+                <p>•Keep your doors and windows locked.
+                </p>
+                <p>•Use strong and unique passwords for online accounts.
+                </p>
+                <p>•Install and maintain security systems.
+                </p>
+                <p>•Keep emergency contact numbers handy.
+                </p>
+                <p>•Stay informed about local safety alerts.
+                </p>
+                <p>•Have a family emergency plan in place.</p>@@
+            </p>
+            </div>
+            <div class="dashboard-card">
+                <h4>Quick Actions</h4>
+                <button class="quick-btn" id="shareLocationBtn">Share Location</button>
+                <button class="quick-btn" id="contactPoliceBtn">Contact Police</button>
+                <button class="quick-btn" id="liveCrimeRateBtn">Show Live Crime Rate</button>
+                <div id="liveCrimeRateDisplay" style="margin-top: 10px; color: #ffcc00; font-weight: bold;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Chatbot Modal
+        const chatbotLink = document.getElementById('chatbotLink');
+        const chatbotModal = document.getElementById('chatbotModal');
+        const closeChatbot = document.querySelector('.close-chatbot');
+
+        chatbotLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            chatbotModal.style.display = 'block';
+        });
+
+        closeChatbot.addEventListener('click', () => {
+            chatbotModal.style.display = 'none';
+        });
+
+        // Dashboard Modal
+        const dashboardLink = document.getElementById('dashboardLink');
+        const dashboardModal = document.getElementById('dashboardModal');
+        const closeDashboard = document.querySelector('.close-dashboard');
+
+        dashboardLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            dashboardModal.style.display = 'block';
+        });
+
+        closeDashboard.addEventListener('click', () => {
+            dashboardModal.style.display = 'none';
+        });
+
+        // Simple Chatbot Functionality
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const userInput = document.getElementById('userInput');
+        const chatbotBody = document.getElementById('chatbotBody');
+
+        sendMessageBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('chat-message');
+                userMessage.style.backgroundColor = 'orange';
+                userMessage.style.color = 'black';
+                userMessage.style.marginLeft = 'auto';
+                userMessage.textContent = message;
+                chatbotBody.appendChild(userMessage);
+
+                // Clear input
+                userInput.value = '';
+
+                // Simulate bot response
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.classList.add('chat-message', 'bot-message');
+                    botMessage.textContent = getBotResponse(message);
+                    chatbotBody.appendChild(botMessage);
+                    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+                }, 500);
+
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            }
+        }
+
+        function getBotResponse(message) {
+            const lowerMsg = message.toLowerCase();
+
+            if (lowerMsg.includes('emergency') || lowerMsg.includes('help')) {
+                return "For emergencies, please use the SOS button or call local authorities immediately.";
+            } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi')) {
+                return "Hello! How can I assist you with your safety today?";
+            } else if (lowerMsg.includes('safety tip')) {
+                return "Here's a safety tip: Always be aware of your surroundings and trust your instincts.";
+            } else {
+                return "I'm here to help with safety concerns. You can ask me for safety tips or emergency procedures.";
+            }
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === chatbotModal) {
+                chatbotModal.style.display = 'none';
+            }
+            if (e.target === dashboardModal) {
+                dashboardModal.style.display = 'none';
+            }
+        });
+
+        // Emergency SOS Button Functionality
+        const emergencySOSBtn = document.getElementById('emergencySOSBtn');
+        emergencySOSBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!navigator.geolocation) {
+                alert('Geolocation is not supported by your browser.');
+                return;
+            }
+            alert('Locating and sending your location to emergency services...');
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const latitude = position.coords.latitude.toFixed(6);
+                    const longitude = position.coords.longitude.toFixed(6);
+                    // Simulate sending location to police and ambulance
+                    alert(`Emergency services notified with your location:\nLatitude: ${latitude}\nLongitude: ${longitude}`);
+                    // Optionally, open phone dialer or map links here
+                    window.location.href = 'tel:100'; // Call police
+                    // Open ambulance location in Google Maps in new tab
+                    window.open(`https://www.google.com/maps/search/ambulance+near+${latitude},${longitude}`, '_blank');
+                },
+                () => {
+                    alert('Unable to retrieve your location.');
+                }
+            );
+        });
+
+        // Live Crime Rate Button Functionality
+        const liveCrimeRateBtn = document.getElementById('liveCrimeRateBtn');
+        const liveCrimeRateDisplay = document.getElementById('liveCrimeRateDisplay');
+
+        liveCrimeRateBtn.addEventListener('click', () => {
+            // Simulate fetching live crime rate data
+            const crimeRate = (Math.random() * 100).toFixed(2);
+            liveCrimeRateDisplay.textContent = `Current Live Crime Rate: ${crimeRate} incidents per 1000 residents`;
+        });
+
+        // Share Location Button Functionality (optional enhancement)
+        const shareLocationBtn = document.getElementById('shareLocationBtn');
+        shareLocationBtn.addEventListener('click', () => {
+            alert('Location sharing feature coming soon.');
+        });
+
+        // Contact Police Button Functionality (optional enhancement)
+        const contactPoliceBtn = document.getElementById('contactPoliceBtn');
+        contactPoliceBtn.addEventListener('click', () => {
+            alert('Contacting police feature coming soon.');
+        });
+    </script>
+ 
+</body>
+
+</html>
